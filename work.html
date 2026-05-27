@@ -41,22 +41,80 @@
 </head>
 <body class="text-neutral-800 antialiased selection:bg-amber-500 selection:text-white">
 
-  <!-- EMERALD EDGE-TO-EDGE NAVBAR -->
-  <header class="w-full sticky top-0 z-50 backdrop-blur-md bg-[#1e3322] shadow-lg">
-    <nav class="w-full px-8 py-4 flex justify-between items-center text-white">
+  <!-- NAVBAR -->
+  <header class="w-full sticky top-0 z-[100] backdrop-blur-md bg-[#1e3322] shadow-lg">
+    <div class="w-full px-8 py-4 flex justify-between items-center text-white relative">
       <a href="index.html" class="flex items-center gap-2 font-bold text-xl hover:opacity-90 transition">
         <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
         Bentley Multimedia <span class="text-amber-400">&</span> Tech Innovations<span class="text-amber-400">.</span>
       </a>
+
+      <!-- Desktop Menu -->
       <ul class="hidden md:flex items-center gap-8 text-xs font-medium text-neutral-300 uppercase tracking-wider">
         <li><a href="index.html" class="hover:text-amber-400 transition">Home</a></li>
         <li><a href="about.html" class="hover:text-amber-400 transition">About</a></li>
         <li><a href="services.html" class="hover:text-amber-400 transition">Services</a></li>
         <li><a href="work.html" class="text-amber-400 font-semibold transition">Projects</a></li>
       </ul>
-      <a href="contact.html" class="bg-white text-[#1e3322] text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-amber-500 hover:text-white transition shadow-xs uppercase">Hire Me</a>
-    </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden md:block bg-white text-[#1e3322] text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-amber-500 hover:text-white transition shadow-xs uppercase">Hire Me</a>
+        <button id="mobile-toggle" class="md:hidden w-10 h-10 flex items-center justify-center text-2xl cursor-pointer">
+          <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-[#1e3322] border-t border-white/10 flex flex-col p-6 gap-4 shadow-2xl md:hidden">
+        <a href="index.html" class="mobile-link text-lg font-bold text-white hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="mobile-link text-lg font-bold text-white hover:text-amber-400 transition">About</a>
+        <a href="services.html" class="mobile-link text-lg font-bold text-white hover:text-amber-400 transition">Services</a>
+        <a href="work.html" class="mobile-link text-lg font-bold text-amber-400">Projects</a>
+        <a href="contact.html" class="mobile-link bg-amber-500 text-[#1e3322] px-6 py-3 rounded-lg font-bold uppercase tracking-widest text-xs mt-2 text-center shadow-lg">Hire Me</a>
+      </div>
+    </div>
   </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("mobile-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const icon = document.getElementById("menu-icon");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      function toggleMenu() {
+        const isHidden = menu.classList.contains("hidden");
+        if (isHidden) {
+          menu.classList.remove("hidden");
+          icon.className = "fas fa-times";
+        } else {
+          menu.classList.add("hidden");
+          icon.className = "fas fa-bars";
+        }
+      }
+
+      if (toggle) {
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          toggleMenu();
+        });
+      }
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+          icon.className = "fas fa-bars";
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add("hidden");
+          icon.className = "fas fa-bars";
+        }
+      });
+    });
+  </script>
 
   <!-- HERO SECTION -->
   <div class="mt-12 bg-[#1e3322] shadow-2xl py-24 px-4">
