@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bentley Multimedia & Tech Innovations | Software Engineering & System Architecture</title>
+  <meta name="description" content="Bentley Multimedia & Tech Innovations — Engineering Scalable Systems and High-Performance Digital Solutions. Software Engineering by Jeffery Onoriode Oyibu.">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f8f6;
+      scroll-behavior: smooth;
+    }
+    /* Preloader Styles */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background-color: #1e3322;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    #preloader.loaded {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.1);
+    }
+    .loader-circle {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(245, 158, 11, 0.1);
+      border-top-color: #f59e0b;
+      border-radius: 50%;
+      animation: spin 1s infinite linear;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 25s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+  </style>
+</head>
+<body class="text-neutral-800 antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="flex flex-col items-center gap-6">
+      <div class="loader-circle"></div>
+      <span class="text-amber-500 font-mono text-[10px] uppercase tracking-[0.3em] animate-pulse">Initializing Systems...</span>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('loaded');
+      }, 800); // Slight delay for smoothness
+    });
+  </script>
+
+  <!-- EMERALD EDGE-TO-EDGE NAVBAR -->
+  <header class="w-full sticky top-0 z-50 backdrop-blur-md bg-[#1e3322] shadow-lg">
+    <nav class="w-full px-8 py-4 flex justify-between items-center text-white relative">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl hover:opacity-90 transition z-50">
+        <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
+        Bentley Multimedia <span class="text-amber-400">&</span> Tech Innovations<span class="text-amber-400">.</span>
+      </a>
+      
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center gap-8 text-xs font-medium text-neutral-300 uppercase tracking-wider">
+        <li><a href="index.html" class="text-amber-400 font-semibold transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-amber-400 transition">About</a></li>
+        <li><a href="services.html" class="hover:text-amber-400 transition">Services</a></li>
+        <li><a href="work.html" class="hover:text-amber-400 transition">Projects</a></li>
+      </ul>
+      
+      <div class="flex items-center gap-4 z-50">
+        <a href="contact.html" class="hidden md:block bg-white text-[#1e3322] text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-amber-500 hover:text-white transition shadow-xs uppercase">Hire Me</a>
+        
+        <!-- Mobile Toggle -->
+        <button id="mobile-toggle" class="md:hidden w-10 h-10 flex items-center justify-center text-xl">
+          <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu" class="fixed inset-0 bg-[#1e3322] z-40 flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-500">
+        <a href="index.html" class="text-2xl font-bold text-amber-400">Home</a>
+        <a href="about.html" class="text-2xl font-bold text-white">About</a>
+        <a href="services.html" class="text-2xl font-bold text-white">Services</a>
+        <a href="work.html" class="text-2xl font-bold text-white">Projects</a>
+        <a href="contact.html" class="bg-amber-500 text-[#1e3322] px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm mt-4">Hire Me</a>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    let isOpen = false;
+
+    toggle.addEventListener('click', () => {
+      isOpen = !isOpen;
+      menu.style.transform = isOpen ? 'translateX(0)' : 'translateX(100%)';
+      icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+      document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    });
+  </script>
+
+  <!-- HERO SECTION WITH EMERALD BG AND GAP ABOVE -->
+  <div class="mt-12 bg-[#1e3322] shadow-2xl py-20 px-4">
+    <section id="home" class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center relative">
+      <div class="md:col-span-7 z-10">
+        <span class="inline-block border border-white/20 rounded-md px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-neutral-300 bg-white/5 mb-6">📍 Software Engineering // System Architecture</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] mb-8">
+          Bringing<br><span class="underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-8 text-amber-500">Your Ideas</span> to Life.
+        </h1>
+        <p class="text-neutral-400 text-sm max-w-md leading-relaxed mb-10">
+          Founder of <strong>Bentley Multimedia & Tech Innovations</strong>. I engineer scalable web applications, architect high-performance digital systems, and integrate complex technical solutions.
+        </p>
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="work.html" class="flex items-center gap-4 bg-white text-[#1e3322] pl-6 pr-3 py-3 rounded-full font-bold text-xs hover:bg-amber-500 hover:text-white transition shadow-xl group uppercase tracking-wider">
+            View Projects 
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-neutral-900 transition"><i class="fas fa-arrow-right text-[10px]"></i></span>
+          </a>
+          <a href="contact.html" class="border border-white/20 bg-white/5 text-white font-bold px-8 py-4 rounded-full text-xs hover:bg-white hover:text-[#1e3322] transition shadow-sm uppercase tracking-wider">Consultation</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 relative flex justify-center">
+        <div class="relative w-80 h-80 sm:w-96 sm:h-96">
+          <div class="absolute inset-0 bg-amber-400 rounded-full scale-100 opacity-10 blur-3xl"></div>
+          <div class="absolute inset-0 overflow-hidden rounded-[3rem] border-4 border-white/10 shadow-2xl bg-white/5 flex items-center justify-center">
+            <div class="text-neutral-500 text-[10px] font-mono text-center uppercase tracking-[0.2em]">
+              [ System_Architecture.v4 ]<br>
+              <span class="opacity-40 mt-2 block">-- Nigeria --</span>
+            </div>
+          </div>
+          <span class="absolute -bottom-6 -left-6 bg-white text-[#1e3322] text-[10px] font-black px-5 py-2.5 rounded-lg shadow-2xl border border-white/10 uppercase tracking-widest">Engineering</span>
+          <span class="absolute top-1/4 -right-6 bg-amber-500 text-[#1e3322] text-[10px] font-black px-5 py-2.5 rounded-lg shadow-2xl border border-white/10 uppercase tracking-widest">Scalability</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="bg-amber-500 py-4 border-y border-amber-600/20 marquee-container my-12">
+    <div class="marquee-content text-neutral-900 font-bold uppercase text-xs tracking-widest flex items-center gap-16">
+      <span>Full-Stack Engineering <i class="fas fa-bolt mx-2 text-[10px]"></i> System Architecture <i class="fas fa-bolt mx-2 text-[10px]"></i> Scalable Solutions <i class="fas fa-bolt mx-2 text-[10px]"></i> API Development <i class="fas fa-bolt mx-2 text-[10px]"></i> Process Automation</span>
+      <span>Full-Stack Engineering <i class="fas fa-bolt mx-2 text-[10px]"></i> System Architecture <i class="fas fa-bolt mx-2 text-[10px]"></i> Scalable Solutions <i class="fas fa-bolt mx-2 text-[10px]"></i> API Development <i class="fas fa-bolt mx-2 text-[10px]"></i> Process Automation</span>
+    </div>
+  </div>
+
+  <section id="capabilities" class="py-16 px-6 max-w-6xl mx-auto scroll-mt-24">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12">
+      <div>
+        <span class="text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase block mb-3">— Capabilities</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">The Technical <span class="font-light italic text-neutral-400">Core</span></h2>
+      </div>
+      <a href="services.html" class="mt-6 sm:mt-0 flex items-center gap-4 bg-[#1e3322] text-white pl-6 pr-3 py-3 rounded-full font-bold text-xs hover:bg-emerald-900 transition shadow-xs group uppercase tracking-wider">
+        All Capabilities
+        <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center group-hover:translate-x-1 transition"><i class="fas fa-arrow-right text-[10px]"></i></span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+      <div class="bg-white p-8 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col items-center group">
+        <div class="w-14 h-14 bg-neutral-50 rounded-2xl flex items-center justify-center border border-neutral-100 mb-5 text-2xl shadow-inner group-hover:bg-amber-50 transition">
+          <img src="https://cdn.simpleicons.org/javascript/000000" alt="JS" class="w-7 h-7 grayscale group-hover:grayscale-0 transition duration-300">
+        </div>
+        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] group-hover:text-neutral-800 transition">JavaScript</span>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col items-center group">
+        <div class="w-14 h-14 bg-neutral-50 rounded-2xl flex items-center justify-center border border-neutral-100 mb-5 text-2xl shadow-inner group-hover:bg-amber-50 transition">
+          <img src="https://cdn.simpleicons.org/typescript/000000" alt="TS" class="w-7 h-7 grayscale group-hover:grayscale-0 transition duration-300">
+        </div>
+        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] group-hover:text-neutral-800 transition">TypeScript</span>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col items-center group">
+        <div class="w-14 h-14 bg-neutral-50 rounded-2xl flex items-center justify-center border border-neutral-100 mb-5 text-2xl shadow-inner group-hover:bg-amber-50 transition">
+          <img src="https://cdn.simpleicons.org/python/000000" alt="PY" class="w-7 h-7 grayscale group-hover:grayscale-0 transition duration-300">
+        </div>
+        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] group-hover:text-neutral-800 transition">Python</span>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col items-center group">
+        <div class="w-14 h-14 bg-neutral-50 rounded-2xl flex items-center justify-center border border-neutral-100 mb-5 text-2xl shadow-inner group-hover:bg-amber-50 transition">
+          <img src="https://cdn.simpleicons.org/react/000000" alt="RE" class="w-7 h-7 grayscale group-hover:grayscale-0 transition duration-300">
+        </div>
+        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] group-hover:text-neutral-800 transition">React.js</span>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col items-center group">
+        <div class="w-14 h-14 bg-neutral-50 rounded-2xl flex items-center justify-center border border-neutral-100 mb-5 text-2xl shadow-inner group-hover:bg-amber-50 transition">
+          <img src="https://cdn.simpleicons.org/nodedotjs/000000" alt="NODE" class="w-7 h-7 grayscale group-hover:grayscale-0 transition duration-300">
+        </div>
+        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] group-hover:text-neutral-800 transition">Node.js</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="bg-[#1e3322] text-white py-24 px-6 scroll-mt-24 shadow-inner">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-16 items-center">
+      <div class="md:col-span-5 flex justify-center">
+        <div class="bg-[#000000] border border-white/5 rounded-3xl p-10 font-mono text-[12px] leading-relaxed text-neutral-400 shadow-2xl w-full max-w-sm relative">
+          <div class="absolute top-4 right-6 flex gap-2"><div class="w-2 h-2 rounded-full bg-rose-500/50"></div><div class="w-2 h-2 rounded-full bg-amber-500/50"></div><div class="w-2 h-2 rounded-full bg-emerald-500/50"></div></div>
+          <div class="mt-4"><span class="text-[#d946ef]">const</span> <span class="text-[#3b82f6]">engineer</span> = {</div>
+          <div class="pl-6"><span class="text-[#d946ef]">name</span>: <span class="text-[#10b981]">'Jeffery O Oyibu'</span>,</div>
+          <div class="pl-6"><span class="text-[#d946ef]">focus</span>: <span class="text-[#10b981]">'System Scalability'</span>,</div>
+          <div class="pl-6"><span class="text-[#d946ef]">stack</span>: [<span class="text-[#10b981]">'Rust'</span>, <span class="text-[#10b981]">'Go'</span>],</div>
+          <div class="pl-6"><span class="text-[#d946ef]">vision</span>: <span class="text-[#10b981]">'Tech-First'</span></div>
+          <div>};</div>
+        </div>
+      </div>
+
+      <div class="md:col-span-7">
+        <span class="text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase block mb-3">— Profile</span>
+        <h2 class="text-4xl sm:text-5xl font-extrabold mb-8 text-white">The Technical <span class="text-amber-500">Architect.</span></h2>
+        <p class="text-base text-neutral-300 leading-relaxed mb-10 max-w-xl">
+          I'm <strong>Jeffery Onoriode Oyibu</strong>, specializing in high-performance digital infrastructure. My work is driven by technical precision, engineering solutions that are secure, robust, and optimized for peak performance.
+        </p>
+        
+        <div class="grid grid-cols-3 gap-8 border-b border-white/5 pb-10 mb-10">
+          <div>
+            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">001 // Availability</span>
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-emerald-500 rounded-full shadow-[0_0_12px_#10b981]"></span>
+              <span class="text-xs font-bold text-white uppercase tracking-wider">Open</span>
+            </div>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">002 // Experience</span>
+            <h4 class="text-xl font-black text-amber-400">1+ Years</h4>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">003 // Lead</span>
+            <h4 class="text-xl font-black text-amber-400">Engineering</h4>
+          </div>
+        </div>
+
+        <a href="about.html" class="inline-flex items-center gap-4 bg-white text-[#1e3322] pl-6 pr-3 py-3 rounded-full font-bold text-xs hover:bg-amber-500 hover:text-white transition group shadow-xl uppercase tracking-wider">
+          View Technical Bio
+          <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-neutral-900 transition"><i class="fas fa-arrow-right text-[10px]"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="py-24 px-6 max-w-6xl mx-auto scroll-mt-24">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16">
+      <div>
+        <span class="text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase block mb-3">— Work</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900">Engineered <span class="text-amber-500">Solutions</span></h2>
+      </div>
+      <a href="work.html" class="mt-6 sm:mt-0 flex items-center gap-4 bg-[#1e3322] text-white pl-6 pr-3 py-3 rounded-full font-bold text-xs hover:bg-emerald-900 transition shadow-xs group uppercase tracking-wider">
+        View All Projects 
+        <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center group-hover:translate-x-1 transition"><i class="fas fa-arrow-right text-[10px]"></i></span>
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-1 gap-10">
+      <div class="group bg-white p-10 rounded-[3rem] border border-neutral-100 shadow-xs hover:shadow-xl transition duration-500 grid md:grid-cols-2 gap-12 items-center">
+        <div class="bg-neutral-50 h-72 rounded-[2rem] flex items-center justify-center border border-neutral-100 font-mono text-[10px] text-neutral-400 uppercase tracking-widest shadow-inner overflow-hidden relative">
+          <div class="absolute inset-0 bg-[#1e3322]/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          [ SYSTEM_SCHEMA.PDF ]
+        </div>
+        <div>
+          <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block mb-3">Software Engineering</span>
+          <h3 class="font-extrabold text-neutral-900 text-2xl mb-4 tracking-tight">Custom SaaS Infrastructure</h3>
+          <p class="text-sm text-neutral-500 leading-relaxed mb-8">A full-stack enterprise solution built for scalability, featuring high-availability database architecture and real-time data sync.</p>
+          <div class="flex gap-3 mb-8">
+            <span class="bg-neutral-100 text-neutral-600 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">TypeScript</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">PostgreSQL</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Docker</span>
+          </div>
+          <a href="work.html" class="text-xs font-black text-neutral-800 inline-flex items-center gap-2 group hover:text-amber-500 transition border-b-2 border-neutral-100 pb-1 uppercase tracking-widest">View Case Study <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-2 transition"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="bg-[#122415] text-white py-24 px-6 scroll-mt-24 shadow-2xl">
+    <div class="max-w-6xl mx-auto text-center">
+      <span class="text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase block mb-4">— Integration</span>
+      <h2 class="text-4xl sm:text-6xl font-extrabold mb-16">Let's build the <span class="text-amber-400">future.</span></h2>
+      
+      <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto mb-16">
+        <a href="mailto:jaybentley247@gmail.com" class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition group shadow-xl">
+          <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block mb-4">Secure Channel // Email</span>
+          <div class="text-base font-bold text-white group-hover:text-amber-400 transition truncate">jaybentley247@gmail.com</div>
+        </a>
+        <a href="https://wa.me/2348028456184" target="_blank" class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition group shadow-xl">
+          <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block mb-4">Direct Message // WhatsApp</span>
+          <div class="text-base font-bold text-white group-hover:text-amber-400 transition">+234 802 845 6184</div>
+        </a>
+      </div>
+
+      <a href="contact.html" class="inline-flex items-center gap-4 bg-white text-[#1e3322] pl-8 pr-3 py-4 rounded-full font-black text-xs hover:bg-amber-500 hover:text-white transition group shadow-2xl uppercase tracking-widest">
+        Start a Conversation
+        <span class="bg-amber-500 text-white w-9 h-9 rounded-full flex items-center justify-center group-hover:bg-neutral-900 transition"><i class="fas fa-arrow-right text-xs"></i></span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="py-16 border-t border-neutral-200 px-8 bg-white">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-[0.3em]">© 2026 Bentley Tech Innovations</span>
+      <a href="#" class="text-[10px] font-mono text-neutral-400 uppercase tracking-[0.3em] hover:text-amber-500 transition">Back to Top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

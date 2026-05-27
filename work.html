@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Bentley Multimedia & Tech Innovations</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f8f6;
+      scroll-behavior: smooth;
+    }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 25s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+    .loading-shimmer {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body class="text-neutral-800 antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- EMERALD EDGE-TO-EDGE NAVBAR -->
+  <header class="w-full sticky top-0 z-50 backdrop-blur-md bg-[#1e3322] shadow-lg">
+    <nav class="w-full px-8 py-4 flex justify-between items-center text-white">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl hover:opacity-90 transition">
+        <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
+        Bentley Multimedia <span class="text-amber-400">&</span> Tech Innovations<span class="text-amber-400">.</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-8 text-xs font-medium text-neutral-300 uppercase tracking-wider">
+        <li><a href="index.html" class="hover:text-amber-400 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-amber-400 transition">About</a></li>
+        <li><a href="services.html" class="hover:text-amber-400 transition">Services</a></li>
+        <li><a href="work.html" class="text-amber-400 font-semibold transition">Projects</a></li>
+      </ul>
+      <a href="contact.html" class="bg-white text-[#1e3322] text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-amber-500 hover:text-white transition shadow-xs uppercase">Hire Me</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="mt-12 bg-[#1e3322] shadow-2xl py-24 px-4">
+    <section class="max-w-6xl mx-auto">
+      <span class="text-xs font-semibold tracking-wider text-amber-500 uppercase block mb-3">— Portfolio</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+        Engineered <br><span class="underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-4 text-amber-500">Solutions.</span>
+      </h1>
+      <p class="text-neutral-300 max-w-2xl text-sm leading-relaxed">A collection of technical case studies and high-performance digital products built for scalability.</p>
+    </section>
+  </div>
+
+  <!-- PROJECTS DYNAMIC GRID -->
+  <section class="max-w-6xl mx-auto px-4 py-20">
+    <div id="projects-container" class="grid md:grid-cols-2 gap-10">
+      <!-- Loading State -->
+      <div class="h-96 rounded-[2.5rem] loading-shimmer"></div>
+      <div class="h-96 rounded-[2.5rem] loading-shimmer"></div>
+    </div>
+  </section>
+
+  <!-- JOURNEY SECTION -->
+  <section class="py-24 px-4 bg-neutral-100/30">
+    <div class="max-w-6xl mx-auto text-center">
+      <span class="text-xs font-semibold tracking-wider text-amber-500 uppercase block mb-3">— Education & Work</span>
+      <h2 class="text-4xl font-bold mb-16 text-neutral-900 leading-tight">My <span class="text-amber-500">Academic and</span> <br>Professional <span class="font-medium">Journey</span></h2>
+
+      <div class="grid md:grid-cols-2 gap-12 text-left">
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-neutral-100">
+          <div class="flex items-center gap-4 mb-10">
+            <span class="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center text-lg shadow-lg"><i class="fas fa-graduation-cap"></i></span>
+            <h3 class="text-2xl font-bold text-neutral-800">Education</h3>
+          </div>
+          <div class="space-y-10 relative border-l-2 border-neutral-100 pl-10 ml-6">
+            <div class="relative">
+              <span class="absolute -left-[49px] top-1.5 w-4 h-4 bg-amber-500 rounded-full border-4 border-white shadow-md"></span>
+              <span class="text-[11px] font-black text-amber-500 uppercase tracking-[0.2em] block mb-2">2021 - 2025</span>
+              <h4 class="font-bold text-neutral-800 text-lg">University of Lagos</h4>
+              <p class="text-xs text-neutral-500 mt-2 uppercase tracking-widest">B.Sc Computer Science</p>
+            </div>
+            <div class="relative opacity-60">
+              <span class="absolute -left-[49px] top-1.5 w-4 h-4 bg-neutral-300 rounded-full border-4 border-white shadow-md"></span>
+              <span class="text-[11px] font-black text-neutral-400 uppercase tracking-[0.2em] block mb-2">2020 - 2021</span>
+              <h4 class="font-bold text-neutral-800 text-lg">Torillo Tech Academy</h4>
+              <p class="text-xs text-neutral-500 mt-2 uppercase tracking-widest">Full Stack Software Engineering</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-neutral-100">
+          <div class="flex items-center gap-4 mb-10">
+            <span class="w-12 h-12 bg-[#1e3322] text-white rounded-full flex items-center justify-center text-lg shadow-lg"><i class="fas fa-briefcase"></i></span>
+            <h3 class="text-2xl font-bold text-neutral-800">Experience</h3>
+          </div>
+          <div class="space-y-10 relative border-l-2 border-neutral-100 pl-10 ml-6">
+            <div class="relative">
+              <span class="absolute -left-[49px] top-1.5 w-4 h-4 bg-[#1e3322] rounded-full border-4 border-white shadow-md"></span>
+              <span class="text-[11px] font-black text-emerald-700 uppercase tracking-[0.2em] block mb-2">2024 - Present</span>
+              <h4 class="font-bold text-neutral-800 text-lg">Bentley Tech Innovations</h4>
+              <p class="text-xs text-neutral-500 mt-2 uppercase tracking-widest">Founder & Lead Architect</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-amber-500 py-4 border-y border-amber-600/20 marquee-container my-12">
+    <div class="marquee-content text-neutral-900 font-bold uppercase text-xs tracking-widest flex items-center gap-16">
+      <span>Architecting Excellence <i class="fas fa-bolt mx-2"></i> Scalable Infrastructure <i class="fas fa-bolt mx-2"></i> Premium Solutions <i class="fas fa-bolt mx-2"></i> Creative Engineering</span>
+      <span>Architecting Excellence <i class="fas fa-bolt mx-2"></i> Scalable Infrastructure <i class="fas fa-bolt mx-2"></i> Premium Solutions <i class="fas fa-bolt mx-2"></i> Creative Engineering</span>
+    </div>
+  </div>
+
+  <footer class="py-12 border-t border-neutral-200 px-8 bg-white">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">© 2026 Bentley Tech Innovations</span>
+      <a href="#" class="text-[10px] font-mono text-neutral-400 uppercase hover:text-amber-500 transition">Back to Top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    async function loadProjects() {
+      const container = document.getElementById('projects-container');
+      try {
+        const res = await fetch('/api/projects');
+        const projects = await res.json();
+        
+        if (projects.length === 0) {
+          container.innerHTML = ``;
+          return;
+        }
+
+        container.innerHTML = projects.map(proj => `
+          <div class="group bg-white p-6 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-xl transition duration-500 block">
+            <div class="bg-neutral-50 h-80 rounded-[2rem] mb-6 flex items-center justify-center overflow-hidden relative shadow-inner border border-neutral-100">
+              <img src="${proj.image}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/800x600?text=Project+Preview'">
+              <div class="absolute inset-0 bg-[#1e3322]/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div class="absolute bottom-4 right-4 bg-[#1e3322] text-white font-mono text-[9px] px-3 py-1 rounded-md uppercase tracking-widest font-bold">${proj.category}</div>
+            </div>
+            <div class="flex gap-2 mb-4 px-2">
+              ${proj.tags.split(',').map(tag => `<span class="bg-amber-500/10 text-amber-600 text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">${tag.trim()}</span>`).join('')}
+            </div>
+            <div class="flex justify-between items-start px-2">
+              <div class="flex-1 pr-4">
+                <h3 class="font-bold text-neutral-900 text-xl mb-2">${proj.title}</h3>
+                <p class="text-xs text-neutral-500 leading-relaxed line-clamp-2">${proj.description}</p>
+              </div>
+              <a href="${proj.link || '#'}" class="w-10 h-10 shrink-0 rounded-full border border-neutral-100 flex items-center justify-center text-neutral-400 group-hover:bg-[#1e3322] group-hover:text-white transition shadow-sm"><i class="fas fa-arrow-right text-sm"></i></a>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        container.innerHTML = `<div class="col-span-2 text-center text-red-500">Error loading projects. Ensure backend is running.</div>`;
+      }
+    }
+    loadProjects();
+  </script>
+</body>
+</html>

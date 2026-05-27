@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Bentley Multimedia & Tech Innovations</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f8f6;
+      scroll-behavior: smooth;
+    }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 25s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+  </style>
+</head>
+<body class="text-neutral-800 antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- EMERALD EDGE-TO-EDGE NAVBAR -->
+  <header class="w-full sticky top-0 z-50 backdrop-blur-md bg-[#1e3322] shadow-lg">
+    <nav class="w-full px-8 py-4 flex justify-between items-center text-white">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl hover:opacity-90 transition">
+        <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
+        Bentley Multimedia <span class="text-amber-400">&</span> Tech Innovations<span class="text-amber-400">.</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-8 text-xs font-medium text-neutral-300 uppercase tracking-wider">
+        <li><a href="index.html" class="hover:text-amber-400 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-amber-400 transition">About</a></li>
+        <li><a href="services.html" class="text-amber-400 font-semibold transition">Services</a></li>
+        <li><a href="work.html" class="hover:text-amber-400 transition">Projects</a></li>
+      </ul>
+      <a href="contact.html" class="bg-white text-[#1e3322] text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-amber-500 hover:text-white transition shadow-xs uppercase">Hire Me</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION WITH EMERALD BG AND GAP ABOVE -->
+  <section class="bg-[#1e3322] text-white py-24 px-4 mt-12 scroll-mt-24 shadow-2xl">
+    <div class="max-w-6xl mx-auto">
+      <span class="text-xs font-semibold tracking-wider text-amber-500 uppercase block mb-3">— Expertise</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+        The Technical <br><span class="underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-4 text-amber-500">Service Core.</span>
+      </h1>
+      <p class="text-neutral-300 max-w-2xl text-sm leading-relaxed">High-performance solutions tailored to your business goals. We bridge the gap between complex engineering and elegant design.</p>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-20">
+    <div class="grid gap-20">
+      
+      <!-- Full Stack Applications -->
+      <div class="group grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-md transition duration-500">
+        <div class="order-2 md:order-1">
+          <span class="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] block mb-4">// Engineering</span>
+          <h2 class="text-3xl font-bold text-neutral-900 mb-6">Full Stack Applications</h2>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-8">We build robust, end-to-end web and mobile applications designed for scale. Our full-stack approach ensures seamless communication between the frontend user experience and complex backend infrastructures.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">TypeScript</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">React / Next.js</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Node.js / Go</span>
+          </div>
+        </div>
+        <div class="order-1 md:order-2 bg-neutral-50 h-80 rounded-[2rem] overflow-hidden relative shadow-inner border border-neutral-100">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" alt="Full Stack Dev" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
+          <div class="absolute bottom-4 right-4 bg-[#1e3322] text-white font-mono text-[10px] px-4 py-1.5 rounded-lg shadow-xl uppercase tracking-widest font-bold">Code Architecture</div>
+        </div>
+      </div>
+
+      <!-- API Integration -->
+      <div class="group grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-md transition duration-500">
+        <div class="bg-neutral-50 h-80 rounded-[2rem] overflow-hidden relative shadow-inner border border-neutral-100">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200" alt="API Integration" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
+          <div class="absolute bottom-4 right-4 bg-amber-500 text-[#1e3322] font-mono text-[10px] px-4 py-1.5 rounded-lg shadow-xl uppercase tracking-widest font-bold">Data Connectivity</div>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] block mb-4">// System Architecture</span>
+          <h2 class="text-3xl font-bold text-neutral-900 mb-6">API Integration</h2>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-8">We specialize in connecting disparate systems through high-performance APIs. Whether it's third-party service integration or custom REST/GraphQL API development, we ensure your data flows securely and efficiently.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">RESTful APIs</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">GraphQL</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Microservices</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Production -->
+      <div class="group grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-md transition duration-500">
+        <div class="order-2 md:order-1">
+          <span class="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] block mb-4">// Creative Production</span>
+          <h2 class="text-3xl font-bold text-neutral-900 mb-6">Video Production</h2>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-8">High-impact storytelling through professional cinematography and post-production. We handle the entire creative pipeline, from scripting and filming to complex motion graphics and color grading.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">4K Cinematography</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Motion Graphics</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Post-Production</span>
+          </div>
+        </div>
+        <div class="order-1 md:order-2 bg-neutral-50 h-80 rounded-[2rem] overflow-hidden relative shadow-inner border border-neutral-100">
+          <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&q=80&w=1200" alt="Video Production" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
+          <div class="absolute bottom-4 right-4 bg-[#1e3322] text-white font-mono text-[10px] px-4 py-1.5 rounded-lg shadow-xl uppercase tracking-widest font-bold">Visual Motion</div>
+        </div>
+      </div>
+
+      <!-- Graphic Designing -->
+      <div class="group grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-md transition duration-500">
+        <div class="bg-neutral-50 h-80 rounded-[2rem] overflow-hidden relative shadow-inner border border-neutral-100">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1200" alt="Graphic Design" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
+          <div class="absolute bottom-4 right-4 bg-amber-500 text-[#1e3322] font-mono text-[10px] px-4 py-1.5 rounded-lg shadow-xl uppercase tracking-widest font-bold">Visual Identity</div>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] block mb-4">// Branding</span>
+          <h2 class="text-3xl font-bold text-neutral-900 mb-6">Graphic Designing</h2>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-8">We create compelling visual identities and creative assets that resonate with your audience. From premium logo designs to comprehensive brand guidelines, we ensure your brand stands out with clarity and style.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Logo Suite</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Brand Strategy</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Typography</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Optimization -->
+      <div class="group grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-md transition duration-500">
+        <div class="order-2 md:order-1">
+          <span class="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] block mb-4">// Digital Growth</span>
+          <h2 class="text-3xl font-bold text-neutral-900 mb-6">SEO Optimization</h2>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-8">Increase your visibility and drive organic traffic with our data-driven SEO strategies. We perform deep technical audits, keyword research, and on-page optimizations to ensure your business ranks where it matters.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Technical SEO</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Market Analysis</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Performance Tracking</span>
+          </div>
+        </div>
+        <div class="order-1 md:order-2 bg-neutral-50 h-80 rounded-[2rem] overflow-hidden relative shadow-inner border border-neutral-100">
+          <img src="https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?auto=format&fit=crop&q=80&w=1200" alt="SEO" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
+          <div class="absolute bottom-4 right-4 bg-[#1e3322] text-white font-mono text-[10px] px-4 py-1.5 rounded-lg shadow-xl uppercase tracking-widest font-bold">Search Visibility</div>
+        </div>
+      </div>
+
+      <!-- Large Format Print -->
+      <div class="group grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-md transition duration-500">
+        <div class="bg-neutral-50 h-80 rounded-[2rem] overflow-hidden relative shadow-inner border border-neutral-100">
+          <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&q=80&w=1200" alt="Large Format Print" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
+          <div class="absolute bottom-4 right-4 bg-amber-500 text-[#1e3322] font-mono text-[10px] px-4 py-1.5 rounded-lg shadow-xl uppercase tracking-widest font-bold">Physical Impact</div>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em] block mb-4">// Physical Media</span>
+          <h2 class="text-3xl font-bold text-neutral-900 mb-6">Large Format Print</h2>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-8">We bring your brand to life in the physical world with precision large-format printing. From billboards and vehicle wraps to exhibition displays, we guarantee high-fidelity output on any scale.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Signage</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Billboard Design</span>
+            <span class="bg-neutral-100 text-neutral-600 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter">Quality Finish</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="bg-amber-500 py-4 border-y border-amber-600/20 marquee-container my-8">
+    <div class="marquee-content text-neutral-900 font-bold uppercase text-xs tracking-widest flex items-center gap-16">
+      <span>Scalable Systems <i class="fas fa-bolt mx-2"></i> Modern Architecture <i class="fas fa-bolt mx-2"></i> Premium Design <i class="fas fa-bolt mx-2"></i> Quality Assurance</span>
+      <span>Scalable Systems <i class="fas fa-bolt mx-2"></i> Modern Architecture <i class="fas fa-bolt mx-2"></i> Premium Design <i class="fas fa-bolt mx-2"></i> Quality Assurance</span>
+    </div>
+  </div>
+
+  <footer class="py-12 border-t border-neutral-200 px-8 mt-12">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <span class="text-[10px] font-mono text-neutral-400 uppercase">© 2026 Bentley Tech Innovations</span>
+      <a href="#" class="text-[10px] font-mono text-neutral-400 uppercase hover:text-amber-500 transition">Back to Top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

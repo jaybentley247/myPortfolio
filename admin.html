@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Bentley Tech Innovations</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f8f6;
+    }
+    .loading-shimmer {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body class="text-neutral-800 antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- PASSWORD PROTECTOR -->
+  <div id="admin-lock" class="fixed inset-0 z-[10000] bg-[#1e3322] flex items-center justify-center p-6">
+    <div class="max-w-md w-full bg-white p-10 rounded-[3rem] shadow-2xl text-center">
+      <div class="w-16 h-16 bg-amber-500 text-[#1e3322] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 shadow-lg">
+        <i class="fas fa-lock"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-neutral-900 mb-2">Admin Access</h2>
+      <p class="text-neutral-500 text-sm mb-8">Please enter the secure password to manage your portfolio.</p>
+      <input type="password" id="admin-pass" placeholder="••••••••" class="w-full bg-neutral-100 border border-neutral-200 rounded-2xl px-6 py-4 text-center text-lg focus:outline-none focus:border-amber-500 transition mb-4">
+      <button onclick="checkPass()" class="w-full bg-[#1e3322] text-white font-black py-4 rounded-2xl uppercase tracking-widest text-xs hover:bg-emerald-900 transition shadow-xl">Unlock System</button>
+      <div id="pass-error" class="text-rose-500 text-[10px] font-bold uppercase mt-4 hidden">Access Denied: Invalid Credentials</div>
+    </div>
+  </div>
+
+  <script>
+    function checkPass() {
+      const pass = document.getElementById('admin-pass').value;
+      const lock = document.getElementById('admin-lock');
+      const error = document.getElementById('pass-error');
+      
+      if (pass === 'Youngyoung@44') {
+        lock.style.opacity = '0';
+        setTimeout(() => lock.style.display = 'none', 500);
+        sessionStorage.setItem('admin_auth', 'true');
+      } else {
+        error.classList.remove('hidden');
+        document.getElementById('admin-pass').value = '';
+      }
+    }
+
+    // Persistent session check
+    if (sessionStorage.getItem('admin_auth') === 'true') {
+      document.getElementById('admin-lock').style.display = 'none';
+    }
+  </script>
+
+  <!-- ADMIN NAVBAR -->
+  <header class="w-full sticky top-0 z-50 backdrop-blur-md bg-[#1e3322] shadow-lg">
+    <nav class="w-full px-8 py-4 flex justify-between items-center text-white">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2 font-bold text-xl hover:opacity-90 transition">
+          <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
+          Bentley <span class="text-amber-400">Admin</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-6">
+        <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest"><i class="fas fa-circle text-[6px] mr-2"></i> System Active</span>
+        <a href="work.html" target="_blank" class="bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-lg transition uppercase">View Projects</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    
+    <div class="mb-12">
+      <h1 class="text-3xl font-bold text-neutral-900">Portfolio Management</h1>
+      <p class="text-neutral-500 text-sm mt-2">Control your engineering solutions, creative designs, and system architectures.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-12">
+      
+      <!-- Upload/Edit Form -->
+      <div class="lg:col-span-5 bg-[#1e3322] p-8 rounded-[2.5rem] shadow-2xl text-white border border-white/5 sticky top-28 h-fit">
+        <div class="flex items-center justify-between mb-8 px-2">
+          <div class="flex items-center gap-3">
+            <span id="form-icon" class="w-8 h-8 bg-amber-500 text-[#1e3322] rounded-full flex items-center justify-center text-xs shadow-lg"><i class="fas fa-plus"></i></span>
+            <h2 id="form-title" class="text-lg font-bold uppercase tracking-wider">Add Project</h2>
+          </div>
+          <button id="cancel-edit" class="hidden text-[10px] uppercase font-bold text-neutral-400 hover:text-white transition">Cancel</button>
+        </div>
+
+        <form id="admin-upload-form" class="space-y-5">
+          <input type="hidden" id="edit_id">
+          
+          <div>
+            <label class="block text-white/50 text-[10px] uppercase font-bold tracking-widest mb-1.5 px-1">Project Title</label>
+            <input type="text" id="proj_title" required placeholder="Project Name" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+          </div>
+
+          <div>
+            <label class="block text-white/50 text-[10px] uppercase font-bold tracking-widest mb-1.5 px-1">Category</label>
+            <select id="proj_category" class="w-full bg-[#122415] border border-white/10 rounded-xl px-5 py-3 text-white text-sm focus:outline-none focus:border-amber-400 transition cursor-pointer">
+              <option value="Web Engineering">Web Engineering</option>
+              <option value="Full Stack App">Full Stack App</option>
+              <option value="Video Production">Video Production</option>
+              <option value="Graphic Design">Graphic Design</option>
+              <option value="System Architecture">System Architecture</option>
+              <option value="SEO Optimization">SEO Optimization</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-white/50 text-[10px] uppercase font-bold tracking-widest mb-1.5 px-1">Cover Image URL</label>
+            <input type="url" id="proj_image" required placeholder="https://..." class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+          </div>
+
+          <div>
+            <label class="block text-white/50 text-[10px] uppercase font-bold tracking-widest mb-1.5 px-1">Technical Tags</label>
+            <input type="text" id="proj_tags" placeholder="React, Node.js, etc." class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+          </div>
+
+          <div>
+            <label class="block text-white/50 text-[10px] uppercase font-bold tracking-widest mb-1.5 px-1">Project Link (Optional)</label>
+            <input type="text" id="proj_link" placeholder="/my-case-study" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+          </div>
+
+          <div>
+            <label class="block text-white/50 text-[10px] uppercase font-bold tracking-widest mb-1.5 px-1">Summary</label>
+            <textarea id="proj_desc" rows="3" required placeholder="Description..." class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-white text-sm focus:outline-none focus:border-amber-400 transition resize-none"></textarea>
+          </div>
+
+          <button type="submit" id="submit-btn" class="w-full bg-amber-500 hover:bg-white text-[#1e3322] font-black py-4 rounded-xl transition duration-300 uppercase tracking-[0.2em] text-xs shadow-xl flex items-center justify-center gap-3 mt-4">
+            <span>Publish Project</span>
+            <i class="fas fa-upload text-[10px]"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Project Inventory -->
+      <div class="lg:col-span-7">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-xl font-bold text-neutral-900 uppercase tracking-widest">Inventory</h2>
+            <span id="item-count" class="bg-neutral-200 text-neutral-500 text-[10px] font-bold px-3 py-1 rounded-full">0 Projects</span>
+        </div>
+
+        <div id="inventory-container" class="grid gap-6">
+            <!-- Loading State -->
+            <div class="h-32 rounded-3xl loading-shimmer"></div>
+            <div class="h-32 rounded-3xl loading-shimmer"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('admin-upload-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const cancelBtn = document.getElementById('cancel-edit');
+    const formTitle = document.getElementById('form-title');
+    const formIcon = document.getElementById('form-icon');
+    const inventoryContainer = document.getElementById('inventory-container');
+    const itemCount = document.getElementById('item-count');
+    
+    let isEditing = false;
+    let projects = [];
+
+    // Load Projects
+    async function loadInventory() {
+        try {
+            const res = await fetch('/api/projects');
+            projects = await res.json();
+            renderInventory();
+        } catch (err) {
+            inventoryContainer.innerHTML = '<div class="text-red-500 text-xs text-center py-10">Failed to sync with server. Ensure server.js is running.</div>';
+        }
+    }
+
+    function renderInventory() {
+        itemCount.innerText = `${projects.length} Projects`;
+        if (projects.length === 0) {
+            inventoryContainer.innerHTML = '<div class="bg-white p-12 rounded-[2.5rem] text-center text-neutral-400 italic text-sm">No projects found. Use the form to add your first work.</div>';
+            return;
+        }
+
+        inventoryContainer.innerHTML = projects.map(p => `
+            <div class="group bg-white p-5 rounded-[2rem] border border-neutral-100 shadow-xs flex items-center gap-6 hover:shadow-md transition duration-300">
+                <div class="w-20 h-20 rounded-2xl overflow-hidden bg-neutral-50 shrink-0 border border-neutral-100">
+                    <img src="${p.image}" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500" onerror="this.src='https://via.placeholder.com/100?text=Error'">
+                </div>
+                <div class="flex-1 min-w-0">
+                    <span class="text-[9px] font-black text-amber-500 uppercase tracking-widest block mb-1">${p.category}</span>
+                    <h3 class="font-bold text-neutral-900 truncate">${p.title}</h3>
+                    <p class="text-[10px] text-neutral-400 truncate mt-0.5">${p.description}</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="enterEditMode('${p.id}')" class="w-9 h-9 rounded-full bg-neutral-50 flex items-center justify-center text-neutral-400 hover:bg-[#1e3322] hover:text-white transition shadow-sm"><i class="fas fa-edit text-xs"></i></button>
+                    <button onclick="deleteProject('${p.id}')" class="w-9 h-9 rounded-full bg-neutral-50 flex items-center justify-center text-neutral-400 hover:bg-rose-500 hover:text-white transition shadow-sm"><i class="fas fa-trash text-xs"></i></button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Create / Update
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const data = {
+            title: document.getElementById('proj_title').value,
+            category: document.getElementById('proj_category').value,
+            image: document.getElementById('proj_image').value,
+            tags: document.getElementById('proj_tags').value,
+            link: document.getElementById('proj_link').value,
+            description: document.getElementById('proj_desc').value
+        };
+
+        const id = document.getElementById('edit_id').value;
+        const method = isEditing ? 'PUT' : 'POST';
+        const url = isEditing ? `/api/projects?id=${id}` : '/api/projects';
+
+        submitBtn.disabled = true;
+        submitBtn.querySelector('span').innerText = isEditing ? 'Updating...' : 'Publishing...';
+
+        try {
+            const res = await fetch(url, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (res.ok) {
+                form.reset();
+                exitEditMode();
+                loadInventory();
+            } else {
+                const err = await res.json();
+                alert(`Error: ${err.error}`);
+            }
+        } catch (err) {
+            alert('Operation failed. Check server connection.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.querySelector('span').innerText = isEditing ? 'Update Project' : 'Publish Project';
+        }
+    });
+
+    // Delete
+    async function deleteProject(id) {
+        if (!confirm('Are you sure? This will remove the project from your public site.')) return;
+        
+        try {
+            const res = await fetch(`/api/projects?id=${id}`, { method: 'DELETE' });
+            if (res.ok) loadInventory();
+            else alert('Delete failed on server.');
+        } catch (err) {
+            alert('Delete failed. Check server connection.');
+        }
+    }
+
+    // Edit Logic
+    window.enterEditMode = (id) => {
+        const p = projects.find(item => item.id == id); // Use == for ID comparison
+        if (!p) return;
+
+        isEditing = true;
+        document.getElementById('edit_id').value = p.id;
+        document.getElementById('proj_title').value = p.title;
+        document.getElementById('proj_category').value = p.category;
+        document.getElementById('proj_image').value = p.image;
+        document.getElementById('proj_tags').value = p.tags || '';
+        document.getElementById('proj_link').value = p.link || '';
+        document.getElementById('proj_desc').value = p.description;
+
+        formTitle.innerText = 'Edit Project';
+        formIcon.innerHTML = '<i class="fas fa-edit"></i>';
+        submitBtn.querySelector('span').innerText = 'Update Project';
+        cancelBtn.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function exitEditMode() {
+        isEditing = false;
+        document.getElementById('edit_id').value = '';
+        formTitle.innerText = 'Add Project';
+        formIcon.innerHTML = '<i class="fas fa-plus"></i>';
+        submitBtn.querySelector('span').innerText = 'Publish Project';
+        cancelBtn.classList.add('hidden');
+    }
+
+    cancelBtn.addEventListener('click', () => {
+        form.reset();
+        exitEditMode();
+    });
+
+    loadInventory();
+  </script>
+</body>
+</html>
