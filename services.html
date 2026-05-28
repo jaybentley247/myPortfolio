@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | Bentley Multimedia & Tech Innovations</title>
+  <title>Services | Bentley Media & Tech Innovations</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,7 @@
     <div class="w-full px-8 py-4 flex justify-between items-center text-white relative">
       <a href="index.html" class="flex items-center gap-2 font-bold text-xl hover:opacity-90 transition">
         <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
-        Bentley Multimedia <span class="text-amber-400">&</span> Tech Innovations<span class="text-amber-400">.</span>
+        Bentley Media <span class="text-amber-400">&</span> Tech Innovations<span class="text-amber-400"></span>
       </a>
 
       <!-- Desktop Menu -->
@@ -108,13 +108,48 @@
   </script>
 
   <!-- HERO SECTION WITH EMERALD BG AND GAP ABOVE -->
-  <section class="bg-[#1e3322] text-white py-24 px-4 mt-2 scroll-mt-24 shadow-2xl">
-    <div class="max-w-6xl mx-auto">
-      <span class="text-xs font-semibold tracking-wider text-amber-500 uppercase block mb-3">— Expertise</span>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6">
-        The Technical <br><span class="underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-4 text-amber-500">Service Core.</span>
-      </h1>
-      <p class="text-neutral-300 max-w-2xl text-sm leading-relaxed">High-performance solutions tailored to your business goals. We bridge the gap between complex engineering and elegant design.</p>
+  <section class="bg-[#1e3322] text-white py-24 px-4 mt-2 scroll-mt-24 shadow-2xl overflow-hidden">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <span class="text-xs font-semibold tracking-wider text-amber-500 uppercase block mb-3">— Expertise</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6">
+          The Technical <br><span class="underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-4 text-amber-500">Service Core.</span>
+        </h1>
+        <p class="text-neutral-300 max-w-xl text-sm leading-relaxed mb-10">High-performance solutions tailored to your business goals. We bridge the gap between complex engineering and elegant design.</p>
+        
+        <!-- Enlarged Code Block -->
+        <div class="bg-[#000000] border border-white/5 rounded-3xl p-10 font-mono text-[16px] md:text-[18px] leading-relaxed text-neutral-400 shadow-2xl w-full max-w-lg relative">
+          <div class="absolute top-4 right-6 flex gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-rose-500/50"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-500/50"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/50"></div>
+          </div>
+          <div class="mt-4">
+            <span class="text-[#d946ef]">const</span>
+            <span class="text-[#3b82f6]">engineer</span> = {
+          </div>
+          <div class="pl-8"><span class="text-[#d946ef]">name</span>: <span class="text-[#10b981]">'Jeffery O Oyibu'</span>,</div>
+          <div class="pl-8"><span class="text-[#d946ef]">focus</span>: <span class="text-[#10b981]">'System Scalability'</span>,</div>
+          <div class="pl-8"><span class="text-[#d946ef]">stack</span>: [<span class="text-[#10b981]">'Rust'</span>, <span class="text-[#10b981]">'Go'</span>],</div>
+          <div class="pl-8"><span class="text-[#d946ef]">vision</span>: <span class="text-[#10b981]">'Tech-First'</span></div>
+          <div>};</div>
+        </div>
+      </div>
+
+      <div class="relative group h-[500px] lg:h-[600px] reveal">
+        <div class="absolute -inset-4 bg-amber-500/10 rounded-[3rem] blur-3xl group-hover:bg-amber-500/20 transition duration-700"></div>
+        <div class="relative h-full w-full bg-neutral-900 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200" alt="Technology and Coding" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700 scale-105 group-hover:scale-100">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-10 left-10">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-[1px] bg-amber-500"></span>
+              <span class="text-amber-500 text-[10px] font-bold uppercase tracking-[0.3em]">Technical Core</span>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-2">Architecting <br>The Digital Future</h3>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -142,7 +177,7 @@
       <!-- API Integration -->
       <div class="group grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-xs hover:shadow-md transition duration-500">
         <div class="bg-neutral-50 h-80 rounded-[2rem] overflow-hidden relative shadow-inner border border-neutral-100">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200" alt="API Integration" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
+          <img src="https://www.image2url.com/r2/default/images/1779984454418-5c8ec5c0-baaf-4fc9-b7c9-3b7d42c63896.png" alt="API Integration" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition group-hover:scale-105 duration-700">
           <div class="absolute bottom-4 right-4 bg-amber-500 text-[#1e3322] font-mono text-[10px] px-4 py-1.5 rounded-lg shadow-xl uppercase tracking-widest font-bold">Data Connectivity</div>
         </div>
         <div>

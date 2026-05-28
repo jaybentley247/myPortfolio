@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "1",
+    "category": "Software Engineering",
+    "title": "Custom SaaS Infrastructure",
+    "description": "A full-stack enterprise solution built for scalability, featuring high-availability database architecture and real-time data sync.",
+    "tags": "TypeScript, PostgreSQL, Docker",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200",
+    "link": "#"
+  }
+]
