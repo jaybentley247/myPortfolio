@@ -10,15 +10,27 @@ if (!fs.existsSync(DATA_FILE)) {
     fs.writeFileSync(DATA_FILE, JSON.stringify([]));
 }
 
+const CORS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+};
+
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
     const query = parsedUrl.query;
 
+    // Handle preflight
+    if (req.method === 'OPTIONS') {
+        res.writeHead(204, CORS_HEADERS);
+        return res.end();
+    }
+
     // API: GET All Projects
     if (pathname === '/api/projects' && req.method === 'GET') {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
-        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.writeHead(200, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
         return res.end(data);
     }
 
@@ -33,10 +45,10 @@ const server = http.createServer((req, res) => {
                 newProject.id = Date.now().toString();
                 data.unshift(newProject);
                 fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
-                res.writeHead(201, { 'Content-Type': 'application/json' });
+                res.writeHead(201, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ message: 'Project Created', project: newProject }));
             } catch (err) {
-                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.writeHead(400, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ error: 'Invalid Data' }));
             }
         });
@@ -59,14 +71,14 @@ const server = http.createServer((req, res) => {
                     // Maintain original ID but update all other fields
                     data[index] = { ...data[index], ...updatedProject, id: data[index].id };
                     fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
-                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.writeHead(200, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
                     res.end(JSON.stringify({ message: 'Project Updated' }));
                 } else {
-                    res.writeHead(404, { 'Content-Type': 'application/json' });
+                    res.writeHead(404, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
                     res.end(JSON.stringify({ error: 'Project not found' }));
                 }
             } catch (err) {
-                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.writeHead(400, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ error: 'Invalid Data' }));
             }
         });
@@ -82,10 +94,10 @@ const server = http.createServer((req, res) => {
         
         if (data.length !== newData.length) {
             fs.writeFileSync(DATA_FILE, JSON.stringify(newData, null, 2));
-            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.writeHead(200, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'Project Deleted' }));
         } else {
-            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.writeHead(404, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Project not found' }));
         }
         return;
