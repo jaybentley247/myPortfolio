@@ -182,7 +182,7 @@
             projects = await res.json();
             renderInventory();
         } catch (err) {
-            inventoryContainer.innerHTML = '<div class="text-red-500 text-xs text-center py-10">Failed to sync with server. Ensure server.js is running.</div>';
+            inventoryContainer.innerHTML = '<div class="text-red-500 text-xs text-center py-10"></div>';
         }
     }
 
