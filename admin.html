@@ -164,6 +164,8 @@
   </main>
 
   <script>
+    const API_BASE = 'https://myportfolio-api.onrender.com'; // ← paste your backend URL here
+
     const form = document.getElementById('admin-upload-form');
     const submitBtn = document.getElementById('submit-btn');
     const cancelBtn = document.getElementById('cancel-edit');
@@ -178,7 +180,7 @@
     // Load Projects
     async function loadInventory() {
         try {
-            const res = await fetch('/api/projects');
+            const res = await fetch(`${API_BASE}/api/projects`);
             projects = await res.json();
             renderInventory();
         } catch (err) {
@@ -226,7 +228,7 @@
 
         const id = document.getElementById('edit_id').value;
         const method = isEditing ? 'PUT' : 'POST';
-        const url = isEditing ? `/api/projects?id=${id}` : '/api/projects';
+        const url = isEditing ? `${API_BASE}/api/projects?id=${id}` : `${API_BASE}/api/projects`;
 
         submitBtn.disabled = true;
         submitBtn.querySelector('span').innerText = isEditing ? 'Updating...' : 'Publishing...';
@@ -259,7 +261,7 @@
         if (!confirm('Are you sure? This will remove the project from your public site.')) return;
         
         try {
-            const res = await fetch(`/api/projects?id=${id}`, { method: 'DELETE' });
+            const res = await fetch(`${API_BASE}/api/projects?id=${id}`, { method: 'DELETE' });
             if (res.ok) loadInventory();
             else alert('Delete failed on server.');
         } catch (err) {
