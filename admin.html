@@ -14,6 +14,7 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #f7f8f6;
+      overflow-x: hidden;
     }
     .loading-shimmer {
       background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
@@ -66,31 +67,31 @@
 
   <!-- ADMIN NAVBAR -->
   <header class="w-full sticky top-0 z-50 backdrop-blur-md bg-[#1e3322] shadow-lg">
-    <nav class="w-full px-8 py-4 flex justify-between items-center text-white">
+    <nav class="w-full px-4 sm:px-8 py-4 flex justify-between items-center text-white">
       <div class="flex items-center gap-4">
-        <a href="index.html" class="flex items-center gap-2 font-bold text-xl hover:opacity-90 transition">
-          <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
+        <a href="index.html" class="flex items-center gap-2 font-bold text-lg hover:opacity-90 transition">
+          <span class="bg-amber-500 text-[#1e3322] w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">B</span>
           Bentley <span class="text-amber-400">Admin</span>
         </a>
       </div>
-      <div class="flex items-center gap-6">
-        <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest"><i class="fas fa-circle text-[6px] mr-2"></i> System Active</span>
-        <a href="work.html" target="_blank" class="bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-lg transition uppercase">View Projects</a>
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:block text-[10px] font-mono text-emerald-400 uppercase tracking-widest"><i class="fas fa-circle text-[6px] mr-2"></i> System Active</span>
+        <a href="work.html" target="_blank" class="bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-lg transition uppercase whitespace-nowrap">View Projects</a>
       </div>
     </nav>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-12">
+  <main class="max-w-6xl mx-auto px-4 py-8 w-full">
     
-    <div class="mb-12">
-      <h1 class="text-3xl font-bold text-neutral-900">Portfolio Management</h1>
+    <div class="mb-8">
+      <h1 class="text-2xl sm:text-3xl font-bold text-neutral-900">Portfolio Management</h1>
       <p class="text-neutral-500 text-sm mt-2">Control your engineering solutions, creative designs, and system architectures.</p>
     </div>
 
-    <div class="grid lg:grid-cols-12 gap-12">
-      
+    <div class="grid lg:grid-cols-12 gap-8">
+
       <!-- Upload/Edit Form -->
-      <div class="lg:col-span-5 bg-[#1e3322] p-8 rounded-[2.5rem] shadow-2xl text-white border border-white/5 sticky top-28 h-fit">
+      <div class="lg:col-span-5 min-w-0 bg-[#1e3322] p-6 sm:p-8 rounded-[2.5rem] shadow-2xl text-white border border-white/5 lg:sticky top-28 h-fit">
         <div class="flex items-center justify-between mb-8 px-2">
           <div class="flex items-center gap-3">
             <span id="form-icon" class="w-8 h-8 bg-amber-500 text-[#1e3322] rounded-full flex items-center justify-center text-xs shadow-lg"><i class="fas fa-plus"></i></span>
@@ -147,7 +148,7 @@
       </div>
 
       <!-- Project Inventory -->
-      <div class="lg:col-span-7">
+      <div class="lg:col-span-7 min-w-0">
         <div class="flex items-center justify-between mb-8">
             <h2 class="text-xl font-bold text-neutral-900 uppercase tracking-widest">Inventory</h2>
             <span id="item-count" class="bg-neutral-200 text-neutral-500 text-[10px] font-bold px-3 py-1 rounded-full">0 Projects</span>
