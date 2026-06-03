@@ -122,7 +122,7 @@
       <div>
         <span class="text-xs font-semibold tracking-wider text-amber-500 uppercase block mb-3">— Portfolio</span>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-6">
-          Engineered <br><span class="underline decoration-amber-400 decoration-wavy decoration-2 underline-offset-4 text-amber-500">Solutions.</span>
+          Engineered <br><span class="text-amber-500">Solutions.</span>
         </h1>
         <p class="text-neutral-300 max-w-xl text-sm leading-relaxed mb-10">A collection of technical case studies and high-performance digital products built for scalability.</p>
         
@@ -218,6 +218,51 @@
     </div>
   </div>
 
+  <!-- HIRE ME / CONTACT SECTION -->
+  <section class="bg-[#122415] text-white py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <span class="text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase block mb-4">— Let's Work Together</span>
+      <h2 class="text-4xl sm:text-6xl font-extrabold mb-6">Ready to <span class="text-amber-400">Hire Me?</span></h2>
+      <p class="text-neutral-400 text-sm max-w-xl mx-auto mb-16">Whether you need a full-stack engineer or a creative partner, reach out through any of these channels and let's build something great.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
+        <a href="mailto:info@bentleymediatech.tech" class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition group shadow-xl">
+          <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block mb-4">Secure Channel // Email</span>
+          <div class="flex items-center justify-center gap-3">
+            <i class="fas fa-envelope text-amber-500 text-lg"></i>
+            <div class="text-sm font-bold text-white group-hover:text-amber-400 transition truncate">info@bentleymediatech.tech</div>
+          </div>
+        </a>
+        <a href="https://wa.me/2348028456184" target="_blank" class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition group shadow-xl">
+          <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block mb-4">Direct Message // WhatsApp</span>
+          <div class="flex items-center justify-center gap-3">
+            <i class="fab fa-whatsapp text-emerald-500 text-xl"></i>
+            <div class="text-sm font-bold text-white group-hover:text-amber-400 transition">+234 802 845 6184</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/jeffery-oyibu/" target="_blank" class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition group shadow-xl">
+          <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block mb-4">Professional // LinkedIn</span>
+          <div class="flex items-center justify-center gap-3">
+            <i class="fab fa-linkedin text-blue-500 text-xl"></i>
+            <div class="text-sm font-bold text-white group-hover:text-amber-400 transition truncate">Jeffery Oyibu</div>
+          </div>
+        </a>
+        <a href="https://github.com/jaybentley247/" target="_blank" class="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition group shadow-xl">
+          <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block mb-4">Source Code // GitHub</span>
+          <div class="flex items-center justify-center gap-3">
+            <i class="fab fa-github text-white text-xl"></i>
+            <div class="text-sm font-bold text-white group-hover:text-amber-400 transition truncate">jaybentley247</div>
+          </div>
+        </a>
+      </div>
+
+      <a href="contact.html" class="inline-flex items-center gap-4 bg-white text-[#1e3322] pl-8 pr-3 py-4 rounded-full font-black text-xs hover:bg-amber-500 hover:text-white transition group shadow-2xl uppercase tracking-widest">
+        Start a Conversation
+        <span class="bg-amber-500 text-white w-9 h-9 rounded-full flex items-center justify-center group-hover:bg-neutral-900 transition"><i class="fas fa-arrow-right text-xs"></i></span>
+      </a>
+    </div>
+  </section>
+
   <footer class="py-12 border-t border-neutral-200 px-8 bg-white">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">© 2026 Bentley Tech Innovations</span>
@@ -257,7 +302,7 @@
           </div>
         `).join('');
       } catch (err) {
-        container.innerHTML = `<div class="col-span-2 text-center text-red-500">Error loading projects. Ensure backend is running.</div>`;
+        container.innerHTML = `<div class="col-span-2 text-center text-red-500"></div>`;
       }
     }
     loadProjects();
